@@ -4,7 +4,7 @@ import urllib.parse
 import pprint
 
 
-# Credetials Variables resposible for access to the Twitter API
+# Credentials Variables responsible for access to the Twitter API
 consumer_key = 'XLs018zjJ3C26e6shqPx6ngWF'
 consumer_secret = 'sPqVNFtEvub9wlWX0xhJS4sA1dcng1X4hTdPu9vlLSkzCOIzDE'
 token = '1184663497675816962-wYDOSSHC9scImvnAcOg9CLMWjHAzHk'
@@ -47,6 +47,7 @@ tweet = json.loads(decode)
     #pprint.pprint(tweet['statuses'][0])
 
 tweets = tweet['statuses']
+
 for twit in tweets:                      # printing some tweets with username
     print(twit['user']['screen_name'])
     print(twit['text'])
