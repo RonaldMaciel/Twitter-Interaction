@@ -2,7 +2,10 @@ import oauth2
 import json
 import urllib.parse
 import pprint
+from datetime import datetime
 
+today = datetime.now()
+date_formated = today.strftime(" %d/%m/%Y - %H:%M:%S")
 
 # Credetials Variables resposible for access to the Twitter API
 consumer_key = 'XLs018zjJ3C26e6shqPx6ngWF'
@@ -17,13 +20,14 @@ client = oauth2.Client(consumer, token)
 
 ##################################################################################
 
-query = input("What do you want to tweet: ")
+query1 = input("What do you want to tweet: ")
+query = query1 + date_formated
 #request = client.request('https://api.twitter.com/1.1/statuses/update.json?status=' + query)
 query_codificada = urllib.parse.quote(query, safe='')
-request = client.request('https://api.twitter.com/1.1/statuses/update.json?status=' + query_codificada, method='post' )
-
+request = client.request('https://api.twitter.com/1.1/statuses/update.json?status=' + query_codificada, method='POST')
 
 decode = request[1].decode()
 tweet = json.loads(decode)
+
 
 
